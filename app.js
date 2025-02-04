@@ -18,6 +18,7 @@ const paymentsRouter = require('./routes/payments');
 const refreshTokensRouter = require('./routes/refreshTokens');
 const mentorsRouter = require('./routes/mentors');
 const imageCoursesRouter = require('./routes/imageCourses');
+const myCoursesRouter = require('./routes/myCourses');
 
 const verifyToken = require('./middlewares/verifyToken');
 
@@ -40,5 +41,6 @@ app.use('/payments', paymentsRouter);
 app.use('/refresh-tokens', refreshTokensRouter);
 app.use('/mentors', verifyToken, mentorsRouter);
 app.use('/image-courses', verifyToken, imageCoursesRouter);
+app.use('/my-courses', verifyToken, myCoursesRouter);
 
 module.exports = app;
