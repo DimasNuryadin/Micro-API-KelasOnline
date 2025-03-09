@@ -3,6 +3,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const cors = require('cors')
+
 // Library tambahan
 require('dotenv').config();
 
@@ -25,6 +27,8 @@ const verifyToken = require('./middlewares/verifyToken');
 const can = require('./middlewares/permission');
 
 const app = express();
+
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json({ limit: '50mb' }));
