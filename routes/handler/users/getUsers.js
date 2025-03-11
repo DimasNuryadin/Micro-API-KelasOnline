@@ -9,7 +9,7 @@ const api = apiAdapter(URL_SERVICE_USER);
 module.exports = async (req, res) => {
   try {
     const { id } = req.user.data;
-    const user = await api.get(`/users/${id}`);
+    const user = await api.get(`/users?user_ids[]=${id}`);
     return res.json(user.data);
   } catch (error) {
     if (error.code === 'ECONNREFUSED') {
